@@ -14,6 +14,8 @@ git clone https://github.com/rockchip-linux/rknn-toolkit2.git
 
 cd ~/rknn-toolkit2/doc/
 
+pip3 install bfloat16
+
 pip3 install -r requirements_cp38-1.4.0.txt
 
 cd ~/rknn-toolkit2/rknn_toolkit_lite2/packages/
