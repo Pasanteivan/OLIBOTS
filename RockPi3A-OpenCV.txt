@@ -13,3 +13,11 @@ git clone https://github.com/rockchip-linux/rknn-toolkit2.git
 cd rknn-toolkit2/rknn_toolkit_lite2/packages/
 
 pip3 install rknn_toolkit_lite2-1.4.0-cp39-cp39-linux_aarch64.whl
+
+
+
+# bibliografia
+# https://wiki.t-firefly.com/en/Core-3566JD4/usage_npu.html
+# https://github.com/rockchip-linux/rknn-toolkit2
+# https://www.youtube.com/watch?v=NHVPxPlY2lI
+# https://www.youtube.com/watch?v=Sadmw6Rrj1Y
