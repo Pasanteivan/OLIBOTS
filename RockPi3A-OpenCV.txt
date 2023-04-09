@@ -1,5 +1,6 @@
 # Pasos para instalar Open CV en RockPi 3A utilizando Rknn Toolkit-lite2
 # utilizando python 3.9.2
+# SoC RK3568
 
 
 sudo apt-get update -y && sudo apt-get upgrade -y
