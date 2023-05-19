@@ -1,13 +1,30 @@
-# Pasos para instalar Open CV en RockPi 3A utilizando Rknn Toolkit-lite2
+# Language: Español-Spanish
+# Pasos para instalar "Rknn Toolkit-lite2" en RockPi 3A 2GB (Ver 1.31)
 # utilizando python 3.9.2
-# instalado Debian Bullseye xfce4 stable
+# Instalado Debian Bullseye xfce4 stable (Version 20230201-0944)
 # usando paquetes de echo debian stable buster main
 # SoC RK3568
 
+# Language: English-Ingles
+# Step by Step guide for installing "Rknn Toolkit-lite2" on RockPi 3A 2GB (Ver 1.31)
+# Using python 3.9.2
+# installing Debian Bullseye xfce4 stable (Version 20230201-0944)
+# Using "debian stable buster main" packages
+# SoC RK3568
+
+# Instalation Instructions 
+
+export DISTRO=buster-stable
+echo "deb http://apt.radxa.com/$DISTRO/ ${DISTRO%-*} main" | sudo tee -a /etc/apt/sources.list.d/apt-radxa-com.list
+wget -O - apt.radxa.com/$DISTRO/public.key | sudo apt-key add -
+
+export DISTRO=buster-testing
+echo "deb http://apt.radxa.com/$DISTRO/ ${DISTRO%-*} main" | sudo tee -a /etc/apt/sources.list.d/apt-radxa-com.list
+wget -O - apt.radxa.com/$DISTRO/public.key | sudo apt-key add -
 
 sudo apt-get update -y && sudo apt-get upgrade -y
 
-sudo apt-get install -y python3 python3-dev python3-pip python3-setuptools python3-opencv python3-numpy virtualenv gcc git wget libxslt1-dev zlib1g zlib1g-dev libglib2.0-0 libsm6 libgl1-mesa-glx libprotobuf-dev mlocate curl cheese dpkg
+sudo apt-get install -y python3 python3-dev python3-pip python3-setuptools python3-opencv python3-numpy virtualenv gcc git wget libxslt1-dev zlib1g zlib1g-dev libglib2.0-0 libsm6 libgl1-mesa-glx libprotobuf-dev mlocate curl cheese dpkg cmake
 
 wget https://github.com/rockchip-linux/rknpu2/raw/master/runtime/RK356X/Linux/librknn_api/aarch64/librknnrt.so
 
@@ -29,12 +46,12 @@ pip3 install rknn_toolkit_lite2-1.4.0-cp39-cp39-linux_aarch64.whl
 
 
 
-# bibliografia
+# Sources - Bibliografia
 # https://github.com/radxa/debos-radxa/releases/tag/20230201-0944 // RockPi3A Debian Bullseye xfce4 - Recomendacion de fabricante
 # https://github.com/rockchip-linux/rknn-toolkit2  // Recomendacion de fabricante
 # https://github.com/rockchip-linux/rknpu2  // Recomendacion de fabricante
 # https://github.com/radxa/apt      // Librerias adicionales
-# https://wiki.t-firefly.com/en/Core-3566JD4/usage_npu.html#rknn-toolkit-lite2    // Guia para SoC RK356X
-# https://blog.csdn.net/weixin_42829652/article/details/122250357
 # https://www.youtube.com/watch?v=NHVPxPlY2lI
 # https://www.youtube.com/watch?v=Sadmw6Rrj1Y
+# https://wiki.t-firefly.com/en/Core-3566JD4/usage_npu.html#rknn-toolkit-lite2    // Guia para SoC RK356X
+# https://blog.csdn.net/weixin_42829652/article/details/122250357
