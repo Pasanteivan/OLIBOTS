@@ -34,6 +34,10 @@ git clone https://github.com/rockchip-linux/rknn-toolkit2.git
 
 cd ~/rknn-toolkit2/doc/
 
+pip config --user set global.index https://mirror.baidu.com/pypi/simple
+pip config --user set global.index-url https://mirror.baidu.com/pypi/simple
+pip config --user set global.trusted-host baidu
+
 pip3 install --upgrade pip
 
 pip3 install bfloat16
@@ -55,3 +59,4 @@ pip3 install rknn_toolkit_lite2-1.4.0-cp39-cp39-linux_aarch64.whl
 # https://www.youtube.com/watch?v=Sadmw6Rrj1Y
 # https://wiki.t-firefly.com/en/Core-3566JD4/usage_npu.html#rknn-toolkit-lite2    // Guia para SoC RK356X
 # https://blog.csdn.net/weixin_42829652/article/details/122250357
+https://mirror.baidu.com/pypi/simple
