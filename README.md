@@ -3,7 +3,7 @@ OLIBOTS repo
 
 Repositorio de contenido para olibots
 
-SBC utilizado: Radxa RockPI 3A 2G (No eMMC)
+SBC utilizado: Radxa RockPI 3A 2GB (No eMMC) (Ver 1.31)
 datos de la placa:
 
 https://wiki.radxa.com/Rock3/3a
