@@ -11,4 +11,18 @@ sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get install -y xfce4 xubuntu-desktop
 
 # install recomended packages
-sudo apt-get install -y build-essential cmake pkg-config ccache git python2 python3  python3-pip qt5-default libpng-dev libjpeg-dev libeigen3-dev ffmpeg libavcodec-dev libavformat-dev libswscale-dev libavresample-dev libgstreamer1.0-dev libgstreamermm-1.0-dev libgtk-3-dev libgtkglext1-dev libgtkglextmm-x11-1.2-dev
+sudo apt-get install -y build-essential cmake pkg-config ccache python2 python3 python3-pip python3-dev qt5-default libpng-dev libjpeg-dev libeigen3-dev ffmpeg libavcodec-dev libavformat-dev libswscale-dev libavresample-dev libgstreamer1.0-dev libgstreamermm-1.0-dev libgtk-3-dev libgtkglext1-dev libgtkglextmm-x11-1.2-dev apt-utils python3-setuptools python3-opencv python3-numpy virtualenv gcc git wget libxslt1-dev zlib1g zlib1g-dev libglib2.0-0 libsm6 libgl1-mesa-glx libprotobuf-dev mlocate curl cheese dpkg
+
+# upgrade pip
+pip3 install --upgrade pip
+
+#install numpy
+pip3 install numpy
+
+# download & install OpenBLAS
+# tar && cd project dir 
+#make
+# sudo make install
+
+# download & install OpenCV 4.8
+wget -O opencv4.8.0.zip https://github.com/opencv/opencv/archive/4.8.0.zip
