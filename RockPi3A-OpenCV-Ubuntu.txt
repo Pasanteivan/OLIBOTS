@@ -1,0 +1,14 @@
+# Pasos para instalar Open CV en RockPi 3A 2GB
+# utilizando python 3.8
+# instalado ubuntu server 20.04 stable e instalando xfce4
+# usando paquetes de echo debian stable buster main
+# SoC RK3568
+
+# update all libraries
+sudo apt-get update -y && sudo apt-get upgrade -y
+
+#install GUI for test opencv
+sudo apt-get install -y xfce4 xubuntu-desktop
+
+# install recomended packages
+sudo apt-get install -y build-essential cmake pkg-config ccache git python2 python3  python3-pip qt5-default libpng-dev libjpeg-dev libeigen3-dev ffmpeg libavcodec-dev libavformat-dev libswscale-dev libavresample-dev libgstreamer1.0-dev libgstreamermm-1.0-dev libgtk-3-dev libgtkglext1-dev libgtkglextmm-x11-1.2-dev
