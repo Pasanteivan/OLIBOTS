@@ -8,11 +8,16 @@
 
 # Primera Parte - Elementos iniciales
 
+# update all libraries
+sudo apt-get update -y && sudo apt-get upgrade -y
+
 # agregar libreria
 # Modificar achivo " /etc/apt/sources.list.d/apt-radxa-com.list " y agregar repositorio de [Radxa APT]
 
     deb http://apt.radxa.com/focal-stable/ focal main
     deb http://apt.radxa.com/focal-testing/ focal main
+# con el comando:
+    sudo nano /etc/apt/sources.list.d/apt-radxa-com.list
 
 # update all libraries
 sudo apt-get update -y && sudo apt-get upgrade -y
@@ -30,7 +35,34 @@ pip3 install --upgrade pip
 pip3 install numpy
 
 # Segunda Parte - mraa - libreria de manipulacion de pines
+# update all libraries
+sudo apt-get update -y && sudo apt-get upgrade -y
 
+sudo apt-get install -y libmraa thonny
+
+#Copia de ejemplos de codigos
+sudo cp -av /usr/local/share/mraa/examples/ /home/rock/mraa-examples
+
+# Verificacion de libreria
+mraa-gpio list
+
+# realizacion de pruebas de puertos
+# importante senalar que estamos usando el usuario rock y para esta prueba debemos ser super usuario con el comando
+
+sudo mraa-gpio set 40 1 // esto deberia encender un led conectado al pin
+sudo mraa-gpio set 40 0 // esto deberia apagar un led conectado al pin
+
+# si funciono estas pruebas, vamos a la interfaz grafica del rockpi, y vamos a la terminal y ejecutar thonny como super usuario
+
+sudo thonny
+
+#una vez abierto vamos a buscar los ejemplos en la carpeta "/home/rock/mraa-examples" donde vamos a abir el archivo gpio.py
+#vamos a hacer la prueba de circuito y coloquemos play.
+
+
+
+
+ 
 
 
 # Tercera Parte - Open CV
