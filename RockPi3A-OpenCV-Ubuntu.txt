@@ -68,12 +68,20 @@ sudo thonny
     cd ~
     wget -O openblas.zip https://github.com/xianyi/OpenBLAS/releases/download/v0.3.23/OpenBLAS-0.3.23.zip
     unzip openblas.zip
+    cd OpenBLAS-0.3.23
+    make
+    # esperar un momento en que compila
+    sudo make install
 
 # tar && cd project dir 
 
     cd ~
     wget -O opencv.zip https://github.com/opencv/opencv/archive/refs/tags/4.8.0.zip
     unzip opencv.zip
+    cd opencv
+    make
+    # esperar un momento en que compila
+    sudo make install
 
 #make
 # sudo make install
