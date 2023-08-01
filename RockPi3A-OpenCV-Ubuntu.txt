@@ -73,7 +73,7 @@ sudo thonny
     # esperar un momento en que compila
     sudo make install
 
-# tar && cd project dir 
+# descargar e instalar OpenCV version XX
 
     cd ~
     wget -O opencv.zip https://github.com/opencv/opencv/archive/refs/tags/4.8.0.zip
@@ -83,8 +83,4 @@ sudo thonny
     # esperar un momento en que compila
     sudo make install
 
-#make
-# sudo make install
 
-# download & install OpenCV 4.8
-wget -O opencv4.8.0.zip https://github.com/opencv/opencv/archive/4.8.0.zip
