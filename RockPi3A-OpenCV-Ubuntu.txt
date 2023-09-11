@@ -8,9 +8,6 @@
 
 # Primera Parte - Elementos iniciales
 
-# update all libraries
-sudo apt-get update -y && sudo apt-get upgrade -y
-
 # agregar libreria
 # Modificar achivo " /etc/apt/sources.list.d/apt-radxa-com.list " y agregar repositorio de [Radxa APT]
 
@@ -21,6 +18,14 @@ sudo apt-get update -y && sudo apt-get upgrade -y
 
 # update all libraries
 sudo apt-get update -y && sudo apt-get upgrade -y
+
+# aumentar la memoria swap a 3GB
+sudo swapoff -a 
+sudo fallocate -l 3G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+
 
 #install GUI for test opencv
 sudo apt-get install -y xfce4 xubuntu-desktop
