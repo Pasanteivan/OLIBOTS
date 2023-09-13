@@ -7,9 +7,8 @@
 # Se recomienda conectar una memoria usb de por lo menos 4GB y configurarla como memoria SWAP
 
 
-# Paso 01
+# Paso 01 - Agregar libreria
 
-# agregar libreria
     sudo nano /etc/apt/sources.list.d/apt-radxa-com.list
 
 # Modificar achivo " /etc/apt/sources.list.d/apt-radxa-com.list " y agregar repositorio de [Radxa APT]
@@ -25,10 +24,32 @@
     sudo apt-get update -y && sudo apt-get upgrade -y
 #--------------------------------------------------------------------------------------------------------------------------------------
 
-# Paso 03 - aumentar la memoria swap a 3GB
+# Paso 03 - Instalacion de Interfaz Grafica
+
+    sudo apt-get install -y xfce4 xubuntu-desktop
+#--------------------------------------------------------------------------------------------------------------------------------------
+
+
+# Paso 04 - Instalacion de paquetes recomendados
+# Debemos iniciar sesion en la interfaz grafica con el usuario y contrasena " rock ", y luego en la terminal ejecutar el comando.
+    
+    sudo apt-get install -y  build-essential libmraa thonny gcc git wget mlocate curl cheese dpkg cmake pkg-config ccache python2 python3 python3-pip python3-dev qt5-default libpng-dev libjpeg-dev libeigen3-dev ffmpeg libavcodec-dev libavformat-dev libswscale-dev libavresample-dev libgstreamer1.0-dev libgstreamermm-1.0-dev libgtk-3-dev libgtkglext1-dev libgtkglextmm-x11-1.2-dev apt-utils python3-setuptools python3-opencv python3-numpy virtualenv libxslt1-dev zlib1g zlib1g-dev libglib2.0-0 libsm6 libgl1-mesa-glx libprotobuf-dev
+
+# Luego de instalados los paquetes vamos a actualizar el manejador " pip " a la version mas reciente
+    
+    pip3 install --upgrade pip
+
+# Una vez actualizado pip vamos a instalar la libreria " numpy "
+
+    pip3 install numpy
+
+# -------------------------------------------------------------------------------------------------------------------------------------------
+
+# Paso 05 - aumentar la memoria swap a por el tamano de la memoria USB
 
     sudo blkid
-    # se enlistara todos los volumenes de memoria, prestar atencion al conectado en /dev/sda debemos guardar el valor UUID de la memoria esta tendra una forma="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+    # se enlistara todos los volumenes de memoria, prestar atencion al conectado en /dev/sda debemos guardar el valor UUID de la memoria 
+    # esta tendra una forma="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
     sudo umount /dev/XXX # aqui nos aseguramos que la memoria no este en uso
     sudo mkswap /dev/XXX # aqui formateamos la memoria en configuracion SWAP
     sudo nano /etc/fstab # editaremos el archivo fstab que nos permite especificar la memoria SWAP
@@ -36,20 +57,51 @@
     # debemos agregar la linea  " UUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX none swap sw,pri=5 0 0  " donde remplazamos las X por el valor obtenido anteriormente.
 
     sudo swapon -a  # activa la memoria SWAP ahora dentro de la memoria USB
+
 # ----------------------------------------------------------------------------------------------------------------------------------------
 
-# Paso 04 - Instalacion de paquetes recomendados
-    
-    sudo apt-get install -y xfce4 xubuntu-desktop build-essential libmraa thonny gcc git wget mlocate curl cheese dpkg cmake pkg-config ccache python2 python3 python3-pip python3-dev qt5-default libpng-dev libjpeg-dev libeigen3-dev ffmpeg libavcodec-dev libavformat-dev libswscale-dev libavresample-dev libgstreamer1.0-dev libgstreamermm-1.0-dev libgtk-3-dev libgtkglext1-dev libgtkglextmm-x11-1.2-dev apt-utils python3-setuptools python3-opencv python3-numpy virtualenv libxslt1-dev zlib1g zlib1g-dev libglib2.0-0 libsm6 libgl1-mesa-glx libprotobuf-dev
+# Paso 06 - descargar e instalar biblioteca OpenBLAS
 
-# upgrade pip
-pip3 install --upgrade pip
-
-#install numpy
-pip3 install numpy
-# -------------------------------------------------------------------------------------------------------------------------------------------
+    cd ~
+    wget -O openblas.zip https://github.com/xianyi/OpenBLAS/releases/download/v0.3.23/OpenBLAS-0.3.23.zip
+    unzip openblas.zip
+    cd OpenBLAS-0.3.23
+    make all -j4    # esperar un momento en que compila
+    sudo make install
 
 
+# ----------------------------------------------------------------------------------------------------------------------------------------
+
+# Paso 07 - descargar e instalar biblioteca OpenCV
+
+    cd ~
+    wget -O opencv.zip https://github.com/opencv/opencv/archive/refs/tags/4.8.0.zip
+    unzip opencv.zip
+    cd opencv
+    mkdir -p build && cd build
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_INSTALL_PREFIX=/opt/opencv -DWITH_OPENGL=ON -DOPENCV_ENABLE_NONFREE=ON -DWITH_QT=ON -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DOPENCV_GENERATE_PKGCONFIG=ON  -DWITH_1394=OFF -DBUILD_opencv_python2=OFF -DBUILD_opencv_python3=ON -DPYTHON3_LIBRARY=$(python3 -c "from distutils.sysconfig import get_config_var;from os.path import dirname,join ; print(join(dirname(get_config_var('LIBPC')),get_config_var('LDLIBRARY')))") -DPYTHON3_NUMPY_INCLUDE_DIRS=$(python3 -c "import numpy; print(numpy.get_include())") -DPYTHON3_PACKAGES_PATH=$(python3 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")
+
+    # Esperar a que termine
+
+    make all -j4
+    # Esperar a que termine
+
+    make install
+    # Esperar a que termine
+
+# ----------------------------------------------------------------------------------------------------------------------------------------
+
+# Paso 08 - prueba de OpenCV
+
+    sudo thonny 
+
+
+# ----------------------------------------------------------------------------------------------------------------------------------------
+
+# Paso 09 - prueba de libmraa
+
+
+#Copia de ejemplos de codigos
 #Copia de ejemplos de codigos
 sudo cp -av /usr/local/share/mraa/examples/ /home/rock/mraa-examples
 
@@ -68,29 +120,5 @@ sudo thonny
 
 #una vez abierto vamos a buscar los ejemplos en la carpeta "/home/rock/mraa-examples" donde vamos a abir el archivo gpio.py
 #vamos a hacer la prueba de circuito y coloquemos play.
-
-
-
-
-# Tercera Parte - Open CV
-# download & install OpenBLAS
-
-    cd ~
-    wget -O openblas.zip https://github.com/xianyi/OpenBLAS/releases/download/v0.3.23/OpenBLAS-0.3.23.zip
-    unzip openblas.zip
-    cd OpenBLAS-0.3.23
-    make
-    # esperar un momento en que compila
-    sudo make install
-
-# descargar e instalar OpenCV version XX
-
-    cd ~
-    wget -O opencv.zip https://github.com/opencv/opencv/archive/refs/tags/4.8.0.zip
-    unzip opencv.zip
-    cd opencv
-    make
-    # esperar un momento en que compila
-    sudo make install
 
 
