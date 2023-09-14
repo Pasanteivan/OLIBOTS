@@ -93,7 +93,10 @@
 
 # Paso 08 - prueba de OpenCV
 
-    sudo thonny 
+    python3  # abre el interprete de python en la terminal
+
+        import cv2 as cv    # importa la libreria
+        print( cv.__version__ )   #  para ver la version instalada
 
 
 # ----------------------------------------------------------------------------------------------------------------------------------------
