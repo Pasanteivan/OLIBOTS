@@ -12,7 +12,7 @@ Enlace para instalacion de OpenCV para este SBC
 
 https://www.youtube.com/watch?v=NHVPxPlY2lI
 
-Codigo Adicional de ayuda para instalacion de OpenCV
+Codigo Adicional de ayuda para instalacion de RKNN Toolkit 2 para "Machine Learning"
 
 https://gist.github.com/ZlodeiBaal/847569b24bb338566680ab2a8f22c6b2
 
