@@ -1,6 +1,8 @@
 # Pasos para instalar libmraa y Open CV en RockPi 3A 2GB
 # utilizando python 3.8.10
 # instalado ubuntu server Focal 20.04 stable e instalando xfce4
+# usando esta imagen
+# https://github.com/radxa-build/rock-3a/releases/download/20230201-0058/rock-3a-ubuntu-focal-server-arm64-20230201-0720-gpt.img.xz
 # usando paquetes de echo debian stable buster main
 # SoC RK3568
 # se instala la libreria mraa para manipulacion de pines
