@@ -1,3 +1,8 @@
+/*
+simulacion en wokwi del proyecto:
+https://wokwi.com/projects/376327338819565569
+*/
+
 #include <Servo.h> //LIBRERIA DEL SERVO
 Servo servo;
 int servopin=16; //pin del servo
