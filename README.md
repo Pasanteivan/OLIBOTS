@@ -8,11 +8,23 @@ datos de la placa:
 
 https://wiki.radxa.com/Rock3/3a
 
-Enlace para instalacion de OpenCV para este SBC
+Pasos para usar este repo:
 
-https://www.youtube.com/watch?v=NHVPxPlY2lI
+  En caso de tener de instalar Debian utilizar el archivo con el nombre:
 
-Codigo Adicional de ayuda para instalacion de OpenCV
+  
+  En caso de tener de instalar Ubuntu Server utilizar el archivo con el nombre:
+
+
+
+
+Bibliografia de instalación 
+Enlace para instalacion de Computer vision para este SBC
+
+[https://www.youtube.com/watch?v=NHVPxPlY2lI](https://www.youtube.com/watch?v=NHVPxPlY2lI)
+
+
+Codigo Adicional de ayuda para instalacion de RKNN Toolkit 2 para "Machine Learning"
 
 https://gist.github.com/ZlodeiBaal/847569b24bb338566680ab2a8f22c6b2
 
